@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+#bases:
+#  - github.com/rht-labs/lodestar-deployment/bootstrap?ref=master
+generatorOptions:
+  disableNameSuffixHash: true
+secretGenerator:
+  - name: e2e-secret
+    namespace: labs-sre-automation
+    envs:
+      - .env
+configmapGenerator:
+  - name: dispatcher-variables
+    namespace: labs-sre-automation
+    envs:
+    - .env
