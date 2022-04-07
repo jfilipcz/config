@@ -1,16 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-#bases:
-#  - github.com/rht-labs/lodestar-deployment/bootstrap?ref=master
 generatorOptions:
   disableNameSuffixHash: true
 secretGenerator:
-  - name: e2e-secret
-    namespace: lodestar
+  - name: e2e-secret-lodestar
+    namespace: openshift-gitops
     envs:
       - .env
 configmapGenerator:
-  - name: dispatcher-variables
-    namespace: lodestar
+  - name: dispatcher-variables-ls
+    namespace: openshift-gitops
     envs:
     - .env
