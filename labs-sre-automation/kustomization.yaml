@@ -6,9 +6,9 @@ secretGenerator:
   - name: e2e-secret-automation
     namespace: openshift-gitops
     envs:
-      - .env
+      - tempfile
 configmapGenerator:
   - name: dispatcher-variables-automation
     namespace: openshift-gitops
     envs:
-    - .env
+    - tempfile
